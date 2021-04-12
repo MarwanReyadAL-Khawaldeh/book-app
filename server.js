@@ -41,8 +41,16 @@ function Book(data) {
     this.title = data.volumeInfo.title;
     this.author = data.volumeInfo.authors;
     this.description = data.volumeInfo.description;
-    this.image = data.volumeInfo.imageLinks.thumbnail ;
+    this.image = data.volumeInfo.imageLinks.thumbnail;
 
 }
+
+server.get('*', (req, res) => {
+    let errorObject = {
+        status: 500,
+        responseText: 'Sorry, something went wrong'
+    };
+    res.render('./pages/error', { errorObject });
+});
 
 server.listen(PORT, () => console.log('Up on port', PORT));
