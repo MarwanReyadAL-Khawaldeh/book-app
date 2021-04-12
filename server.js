@@ -25,7 +25,6 @@ server.get('/', (req, res) => {
 });
 
 server.post('/searches', (req, res) => {
-    // console.log(req.query);
     let searchBy = req.body.words;
     let words = req.body.searchBy;
     let url = `https://www.googleapis.com/books/v1/volumes?q=${searchBy}+${words}`;
@@ -42,7 +41,7 @@ function Book(data) {
     this.title = data.volumeInfo.title;
     this.author = data.volumeInfo.authors;
     this.description = data.volumeInfo.description;
-    this.image = data.volumeInfo.imageLinks.thumbnail;
+    this.image = data.volumeInfo.imageLinks.thumbnail ;
 
 }
 
