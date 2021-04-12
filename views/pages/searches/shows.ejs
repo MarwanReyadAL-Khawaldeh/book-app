@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Books List</title>
+  </head>
+  <body>
+    <main>
+        <ul>
+
+            <% books.forEach( (book) => { %>
+              <li>
+                  <div><%= book.title %></div>
+                  <div><%= book.author %></div>
+                  <div><%= book.description %></div>
+                  <div><img src="<%= book.image %>" /></div>
+              </li>
+            <% }); %>
+
+        </ul>
+    </main>
+  </body>
+</html>
