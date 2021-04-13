@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Books List</title>
-      <link rel="stylesheet" href="../../../style/base.css" type="text/css">
-      <link rel="stylesheet" href="../../../style/layout.css" type="text/css">
-
-
+    <title>Book App</title>
+    <link rel="stylesheet" href="../../../style/base.css" type="text/css">
+    <link rel="stylesheet" href="../../../style/layout.css" type="text/css">
   </head>
   <body>
     <section class="container">
@@ -24,6 +22,13 @@
                   <h3 class="bookAuthor"><%= book.author %></h3>
                   <p class="bookDescription"><%= book.description %></p>
               </div>
+              <form action='/addBook' method="POST" >
+                <input name="title" value="<%= book.title %>" class="hidden">
+                <input name="author" value="<%= book.author %>" class="hidden">
+                <input name="description" value="<%= book.description %>" class="hidden">
+                <input name="img" value="<%= book.image %>" class="hidden">
+                <button type="submit">Select This Book</button>
+            </form>
             <% }); %>
       </div>
     </main>
