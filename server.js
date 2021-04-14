@@ -2,7 +2,7 @@
 
 const express = require('express');
 const pg = require('pg');
-
+const methodOverride = require('method-override');
 require('dotenv').config();
 
 const cors = require('cors');
@@ -23,11 +23,13 @@ const client = new pg.Client({
 server.use(cors());
 
 server.use(express.static('./public'));
+server.use(methodOverride('_method'));
 server.use(express.urlencoded({ extended: true }));
-server.get('/',homePage);
+server.get('/', homePage);
 server.post('/addBookHandler', addBookHandler);
 server.get('/getOneBookDetails/:id', getOneBookDetails);
-
+server.put('/updateBook/:id', upDate);
+server.delete('/deleteBook/:id', deleteBook);
 server.set('view engine', 'ejs');
 
 
@@ -60,9 +62,9 @@ server.post('/searches', (req, res) => {
 
 function addBookHandler(req, res) {
     console.log(req.body);
-    let { title, author,isbn, img , description } = req.body;
+    let { title, author, isbn, img, description } = req.body;
     let SQL = `INSERT INTO books (title,author,isbn,img,description) VALUES ($1,$2,$3,$4,$5) RETURNING *;`;
-    let safeValues = [title, author,isbn, img , description ];
+    let safeValues = [title, author, isbn, img, description];
     client.query(SQL, safeValues)
         .then(result => {
             console.log(result.rows);
@@ -82,12 +84,29 @@ function getOneBookDetails(req, res) {
         });
 }
 
+function upDate(req, res) {
+    let { title, author, isbn, img, description } = req.body;
+    let SQL = `UPDATE books SET title=$1,author=$2,isbn=$3,img=$4,description=$5 WHERE id=$6;`;
+    let safeValue = [title, author, isbn, img, description, req.params.id];
+    client.query(SQL, safeValue)
+        .then(() => {
+            res.redirect(`/getOneBookDetails/${req.params.id}`);
+        });
+}
+
+function deleteBook(req, res) {
+    let SQL = `DELETE FROM books WHERE id=$1;`;
+    let value = [req.params.id];
+    client.query(SQL, value)
+        .then(res.redirect('/'));
+}
+
 function Book(data) {
     this.title = data.volumeInfo.title;
     this.author = data.volumeInfo.authors;
     this.description = data.volumeInfo.description;
     this.img = (data.volumeInfo.imageLinks) ? data.volumeInfo.imageLinks.thumbnail : 'https://i.imgur.com/J5LVHEL.jpg';
-    this.isbn = (data.volumeInfo.industryIdentifiers)?data.volumeInfo.industryIdentifiers[0].identifier : 'ISBN N/A' ;
+    this.isbn = (data.volumeInfo.industryIdentifiers) ? data.volumeInfo.industryIdentifiers[0].identifier : 'ISBN N/A';
 }
 
 server.get('*', (req, res) => {
