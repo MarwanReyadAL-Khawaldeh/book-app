@@ -1,0 +1,234 @@
+@media (min-width: 480px) { 
+
+
+    .button a {
+        color: #d8d8d8;
+        text-decoration: none;
+
+
+    }
+
+    .formDiv{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+    }
+    .container {
+        display: grid;
+        grid-template-rows: 80px minmax(calc(250vh - 170px) , 1fr) 60px;
+        /* gap: 10px; */
+    }
+
+
+    .underHeader {
+        background-color: #4a4a4a;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+
+    
+
+
+    #enter{
+        /* padding: 10px; */
+        margin: 10px 0;
+        height: 50px;
+        line-height: 50px;
+        /* width: 550px; */
+
+    }
+
+    #title, #author{
+        width: 10px;
+    }
+    #title , #author {
+        background-color: #d8d8d8;
+        color: black;
+        margin: 10px 0;
+        text-align: left;
+        padding-left: 10px;
+        /* height: 50px; */
+        line-height: 50px;
+        /* width: 550px; */
+        cursor: pointer;
+    }
+
+    .titleDiv, .authorDiv{
+        background-color: #d8d8d8;
+        color: black;
+        margin: 10px 0;
+        text-align: left;
+        padding-left: 10px;
+
+    }
+
+    .button{
+        background-color: black;
+        color: #d8d8d8;
+        height: 50px;
+        line-height: 50px;
+        /* width: 550px; */
+        border: none;
+        cursor:pointer;
+        border-radius: 5%;
+
+    }
+
+
+    .imgDiv{
+        background-color: #d8d8d8;
+        text-align: center;
+        color: #4a4a4a;
+        padding: 30px 0;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        /* width: 200px; */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        height: 700px;
+        box-shadow: 5px 10px 18px #888888;     
+        clear: both;   
+    }
+    .bookImg{
+        width: 250px;
+        height: 330px;
+        border: 6px solid white;
+    }
+     .bookTitle,.bookAuthor,.bookDescription{
+        padding: 10px 20px;
+    }
+    .bookTitle{
+        color: white;
+        text-shadow: 2px 2px rgb(61, 56, 56);
+        font-size: 20px;
+        
+    }
+    .errorStatus{
+        font-size: 250px;
+        text-align: center;
+    }
+    .errorText {
+        font-size: 30px;
+        text-align: center;
+    }
+    .button:hover {
+        background-color: #d8d8d8;
+        color: black;
+        /* color: black; */
+        /* border: 2px solid #4a4a4a; */
+      }
+
+      /*start navbar*/
+      .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        float: right;
+  
+      }
+  
+      .sidenav a {
+        padding-left: 20px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+  
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+  
+      .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+  
+      span {
+        float: right;
+        z-index: 100000;
+        color: white;
+        position: relative;
+        width: 50px;
+  
+  
+      }
+  
+      header div {
+        display: inline;
+      }
+
+      .sidenav {
+        padding-top: 15px;
+      }
+
+      .sidenav a {
+        font-size: 18px;
+      }
+
+      .D ,.U{
+        float: left;
+        width: 180px;
+        margin-left: 10%;
+
+
+      }
+
+      .detailsForm{
+        background-color: #d8d8d8;
+        text-align: left;
+        height: 750px;
+        
+      }
+
+      .detailsForm input{
+        padding: 20px;
+        margin: 20px 0 20px 20px;
+        width: 400px;
+      }
+      .detailsForm p {
+        padding-left: 30px;
+      }
+
+      textarea {
+        height: 90px;
+        width: 400px;
+        margin: 20px 0 20px 20px;
+        padding: 20px;
+      }
+
+      .upButton{
+        float: right;
+        width: 180px ;
+        margin-right: 40px;
+      }
+
+      .bookDescription{
+
+        overflow-y: scroll;
+        height: 60px;
+      }
+      .selectButton {
+        height: 50px;
+        width: 200px;
+      }
+      .viewDetailsButon{
+        height: 50px;
+        width: 200px;
+      }
+}

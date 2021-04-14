@@ -2,6 +2,43 @@ h2 {
     font-size: 30px;
 }
 
-header h2{
-    background-color: rgb(13, 14, 14);
+@media (min-width: 480px) { 
+
+    
+    header{
+        background-color: black;
+        height: 80px;
+        line-height: 80px;
+        padding-left: 10px;
+        font-size: 40px;
+    }
+
+
+
+    
+
+    div form {
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 30px;
+        width: 500px;
+    }
+
+
+    input{
+        padding-left: 20px;
+    }
+
+
+
+
+    footer{
+        background-color: black;
+        height: 60px;
+        clear: both;
+        line-height: 60px;
+        text-align: center;
+    }
+
+
 }

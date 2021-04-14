@@ -4,13 +4,27 @@
 <head>
   <title>Book App</title>
   <link rel="stylesheet" href="../../../style/base.css" type="text/css">
-  <link rel="stylesheet" href="../../../style/layout.css" type="text/css">
+
 </head>
 
 <body>
   <section class="container">
     <header>
-      <h2>Best Books!</h2>
+
+      <div class="div2">
+        <span style="cursor:pointer" onclick="openNav()">&#9776; </span>
+
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" style="margin-bottom: 20px;" onclick="closeNav()">X</a>
+          <a href="/">Home</a>
+          <a href="/searches/new">New</a>
+        </div>
+
+
+      </div>
+      <div class="div1">
+        <h2>Best Books!</h2>
+      </div>
     </header>
     <main>
       <div>
@@ -31,22 +45,25 @@
             </p>
             <p class="isbn"> ISBN: <%= book.isbn %>
             </p>
-
             <form action='/addBookHandler' method="POST">
               <input type="hidden" name="title" value="<%= book.title %>">
               <input type="hidden" name="author" value="<%= book.author %>">
-              <input type="hidden" name="description" value="<%= book.description %>">
+              <input class="descriptionShow" type="hidden" name="description" value="<%= book.description %>">
+              <br>
               <input type="hidden" name="img" value="<%= book.img %>">
+              <br>
               <input type="hidden" name="isbn" value="<%= book.isbn %>">
-              <button type="submit">Select This Book</button>
+              <button  class="button selectButton" type="submit">Select This Book</button>
             </form>
           </div>
           <% }); %>
       </div>
     </main>
-    <footer></footer>
+    <footer> All Rights Reversed &copy; 2021 </footer>
   </section>
 
 </body>
+
+<script src="../../../app.js"></script>
 
 </html>
