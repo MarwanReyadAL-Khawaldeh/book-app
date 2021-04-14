@@ -30,10 +30,31 @@
 
       </ul>
 
+      <form action="/deleteBook/<%=books.id%>?_method=delete" method="post">
+        <button>Delete Book</button>
+     </form>
+
+      <button id='updateBtn'>Update</button>
+      <section id='updateForm'>
+        <h3>Update Book From</h3>
+        <form action="/updateBook/<%=books.id%>?_method=put" method="post">
+         <input type="text" name="title" value=' <%= books.title  %> '>
+         <input type="text" name="author" value="<%= books.author  %>">
+         <input type="text" name="isbn" value="<%= books.isbn  %>">
+         <input type="text" name="img" value="<%= books.img  %>">
+         <textarea name="description"><%= books.description  %></textarea>
+         <button type="submit">Update Book</button>
+     </form>
+      </section> 
+
     </div>
+  
 
   </div>
 </main>
 </body>
+<footer>
+  <script src="../../../public/app.js"></script>
+</footer>
 
 </html>
