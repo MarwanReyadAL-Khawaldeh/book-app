@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html>
 
-  <%- include('../layout/head') %>
+<%- include('../layout/head') %>
 
-<body>
-  <section class="container">
-    <header>
-      <h1>choose Books</h1>
-      <a href="/searches/new">
-        <h6>Search for book</h6>
-      </a>
-      <a href="#">
-        <h6>Home</h6>
-      </a>
-    </header>
-    <main>
-      <div>
+  <body>
+    <section class="container">
+      <header>
+        <h1>choose Books</h1>
+        <a href="/searches/new">
+          <h6>Search for book</h6>
+        </a>
+        <a href="/">
+          <h6>Home</h6>
+        </a>
+      </header>
+      <main>
+        <div>
 
 
-      </div>
-      <div class="searchDiv">
-        <% book.forEach( (book)=> { %>
-          <div class="imgDiv">
-            <img class="bookImg" src="<%= book.image %>" />
-            <h2 class="bookTitle">
-              <%= book.title %>
-            </h2>
-            <h3 class="bookAuthor">
-              <%= book.author %>
-            </h3>
-            <p class="bookDescription">
-              <%= book.description %>
-            </p>
-          </div>
-          <% }); %>
-      </div>
-    </main>
-    <footer></footer>
-  </section>
+        </div>
+        <div class="searchDiv">
+          <% book.forEach( (book)=> { %>
+            <div class="imgDiv">
+              <img class="bookImg" src="<%= book.img %>" />
+              <h2 class="bookTitle">
+                <%= book.title %>
+              </h2>
+              <h3 class="bookAuthor">
+                <%= book.author %>
+              </h3>
+              <p class="bookDescription">
+                <%= book.description %>
+              </p>
+              <form action="/getOneBookDetails/<%= book.id %>" method="get">
 
-</body>
+                <input type="hidden" name="image" value="<%=book.img%>">
+                <input type="hidden" name="title" value="<%= book.title%>">
+                <input type="hidden" name="description" value="<%= book.description %>">
+                <input type="hidden" name="auther" value="<%= book.authors%>">
+                <input type="hidden" name="isbn" value="<%= book.isbn %>">
+                <input class="button" type="submit" value="View Detials">
+              </form>
+            </div>
+            <% }); %>
+        </div>
+      </main>
+      <footer></footer>
+    </section>
+
+  </body>
 
 </html>
