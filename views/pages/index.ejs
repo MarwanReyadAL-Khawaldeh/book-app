@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../../style/base.css" type="text/css">
+</head>
 
-<%- include('../layout/head') %>
+  <%- include('../layout/head') %>
 
   <body>
     <section class="container">
       <header>
-        <h1>choose Books</h1>
-        <a href="/searches/new">
-          <h6>Search for book</h6>
-        </a>
-        <a href="/">
-          <h6>Home</h6>
-        </a>
-      </header>
-      <main>
-        <div>
+        <div class="div2">
+          <span style="cursor:pointer" onclick="openNav()">&#9776; </span>
+
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" style="margin-bottom: 20px;" onclick="closeNav()">X</a>
+            <a href="#">Home</a>
+            <a href="/searches/new" >New</a>
+          </div>
 
 
         </div>
+        <div class="div1">
+          <h2>Best Books!</h2>
+        </div>
+      </header>
+      <main>
         <div class="searchDiv">
           <% book.forEach( (book)=> { %>
             <div class="imgDiv">
@@ -32,22 +42,21 @@
               <p class="bookDescription">
                 <%= book.description %>
               </p>
-              <form action="/getOneBookDetails/<%= book.id %>" method="get">
-
+              <form  action="/getOneBookDetails/<%= book.id %>" method="get">
                 <input type="hidden" name="image" value="<%=book.img%>">
                 <input type="hidden" name="title" value="<%= book.title%>">
                 <input type="hidden" name="description" value="<%= book.description %>">
                 <input type="hidden" name="auther" value="<%= book.authors%>">
                 <input type="hidden" name="isbn" value="<%= book.isbn %>">
-                <input class="button" type="submit" value="View Detials">
+                <input  class="button viewDetailsButon" type="submit" value="View Detials">
               </form>
             </div>
             <% }); %>
         </div>
       </main>
-      <footer></footer>
+      <footer> All Rights Reversed &copy; 2021 </footer>
     </section>
 
   </body>
-
+  <script src="../../../app.js"></script>
 </html>
