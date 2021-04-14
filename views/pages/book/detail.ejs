@@ -1,20 +1,39 @@
-<section class="container">
+<!DOCTYPE html>
+<html lang="en">
 
-      <div class="searchDiv">
-        <% book.forEach( (book)=> { %>
-          <div class="imgDiv">
-            <img class="bookImg" src="<%= book.image %>" />
-            <h2 class="bookTitle">
-              <%= book.title %>
-            </h2>
-            <h3 class="bookAuthor">
-              <%= book.author %>
-            </h3>
-            <p class="bookDescription">
-              <%= book.description %>
-            </p>
-          </div>
-          <% }); %>
-      </div>
+    <head>
+        <title>Book App</title>
+        <link rel="stylesheet" href="../../../style/base.css" type="text/css">
+        <link rel="stylesheet" href="../../../style/layout.css" type="text/css">
+      </head>
+<body>
+<main>
+  <div>
+    <h2>Book Details</h2>
 
-  </section>
+    <div>
+      <ul>
+        <li> <img src="<%= books.img %>" /> </li>
+        <li>
+          <%= books.title%>
+        </li>
+        <li>
+          <%= books.author%>
+        </li>
+        <li>
+          <%= books.description %>
+        </li>
+        <li>
+          <%= books.isbn %>
+        </li>
+
+
+      </ul>
+
+    </div>
+
+  </div>
+</main>
+</body>
+
+</html>

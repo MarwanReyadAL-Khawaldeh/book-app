@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Book App</title>
-    <link rel="stylesheet" href="../../../style/base.css" type="text/css">
-    <link rel="stylesheet" href="../../../style/layout.css" type="text/css">
-  </head>
-  <body>
-    <section class="container">
+
+<head>
+  <title>Book App</title>
+  <link rel="stylesheet" href="../../../style/base.css" type="text/css">
+  <link rel="stylesheet" href="../../../style/layout.css" type="text/css">
+</head>
+
+<body>
+  <section class="container">
     <header>
       <h2>Best Books!</h2>
     </header>
@@ -15,25 +17,36 @@
         <h3 class="underHeader">Search Results</h3>
       </div>
       <div class="searchDiv">
-            <% books.forEach( (book) => { %>
-              <div class="imgDiv">
-                <img class="bookImg" src="<%= book.image %>" />
-                  <h2 class="bookTitle"><%= book.title %></h2>
-                  <h3 class="bookAuthor"><%= book.author %></h3>
-                  <p class="bookDescription"><%= book.description %></p>
-              </div>
-              <form action='/addBook' method="POST" >
-                <input name="title" value="<%= book.title %>" class="hidden">
-                <input name="author" value="<%= book.author %>" class="hidden">
-                <input name="description" value="<%= book.description %>" class="hidden">
-                <input name="img" value="<%= book.image %>" class="hidden">
-                <button type="submit">Select This Book</button>
+        <% books.forEach( (book)=> { %>
+          <div class="imgDiv">
+            <img class="bookImg" src="<%= book.img %>" />
+            <h2 class="bookTitle">
+              <%= book.title %>
+            </h2>
+            <h3 class="bookAuthor">
+              <%= book.author %>
+            </h3>
+            <p class="bookDescription">
+              <%= book.description %>
+            </p>
+            <p class="isbn"> ISBN: <%= book.isbn %>
+            </p>
+
+            <form action='/addBookHandler' method="POST">
+              <input type="hidden" name="title" value="<%= book.title %>">
+              <input type="hidden" name="author" value="<%= book.author %>">
+              <input type="hidden" name="description" value="<%= book.description %>">
+              <input type="hidden" name="img" value="<%= book.img %>">
+              <input type="hidden" name="isbn" value="<%= book.isbn %>">
+              <button type="submit">Select This Book</button>
             </form>
-            <% }); %>
+          </div>
+          <% }); %>
       </div>
     </main>
     <footer></footer>
   </section>
 
-  </body>
+</body>
+
 </html>
