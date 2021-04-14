@@ -30,6 +30,8 @@
       </header>
       <main>
         <div class="searchDiv">
+          <p> <%=book.length %> Books collections</p>
+
           <% book.forEach( (book)=> { %>
             <div class="imgDiv">
               <img class="bookImg" src="<%= book.img %>" />
